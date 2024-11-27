@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Pergunta</title>
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1A1A1A;
+            color: #F0F0F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #58A6FF;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            background-color: #2C2C2C;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 600;
+            color: #58A6FF;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #3D3D3D;
+            color: #F0F0F0;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #58A6FF;
+            box-shadow: 0 0 5px #58A6FF;
+        }
+
+        input[type="submit"] {
+            background-color: #58A6FF;
+            border: none;
+            color: white;
+            padding: 1rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4A94D1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Pesquisar Pergunta</h1>
+        <form method="post" action="consQuest.jsp">
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id" placeholder="Digite o ID" required>
+            <input type="submit" value="Consultar!">
+        </form>
+    </div>
+</body>
+</html>

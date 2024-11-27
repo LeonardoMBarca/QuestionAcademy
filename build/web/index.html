@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa</title>
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1A1A1A;
+            color: #F0F0F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #58A6FF;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu {
+            background-color: #2C2C2C;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .menu a {
+            display: block;
+            color: #58A6FF;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #58A6FF;
+            color: #1A1A1A;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu Principal</h1>
+    <div class="menu">
+        <a href="Question/index.html">1. Fazer uma pergunta</a>
+        <a href="consultas/index.html">2. Consulta pergunta por ID</a>
+        <a href="consultaLista/index.jsp">3. Lista de Perguntas</a>
+        <a href="consultaTab/index.jsp">4. Tabela Geral de Perguntas</a>
+        <a href="delete_question/index.html">5. Excluir Pergunta</a>
+        <a href="alterar/index.html">6. Alterar a Pergunta enviada</a>
+        <a href="response/index.html">7. Responder Pergunta/Alterar Resposta</a>
+    </div>
+</body>
+</html>

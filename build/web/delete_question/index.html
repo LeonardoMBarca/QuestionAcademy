@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Academy - Exclusão</title>
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1A1A1A;
+            color: #F0F0F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #58A6FF;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu {
+            background-color: #2C2C2C;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .menu a {
+            display: block;
+            color: #58A6FF;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #58A6FF;
+            color: #1A1A1A;
+        }
+
+        form {
+            background-color: #2C2C2C;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input[type="number"], input[type="submit"] {
+            padding: 0.5rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        input[type="submit"] {
+            background-color: #58A6FF;
+            color: #1A1A1A;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1A1A1A;
+            color: #58A6FF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exclusão de Pergunta</h1>
+    <div class="menu">
+        <form method="post" action="delQuest.jsp">
+            <label for="id">Identificação:</label>
+            <input type="number" name="id" id="id" required>
+            <p><input type="submit" value="Excluir!"></p>
+        </form>
+    </div>
+</body>
+</html>

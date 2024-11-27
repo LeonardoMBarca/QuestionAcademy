@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portal de Cadrastro de Perguntas</title>
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1A1A1A;
+            color: #F0F0F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #58A6FF; /* Azul premium */
+            margin-bottom: 1rem;
+        }
+
+        form {
+            background-color: #2C2C2C;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 600;
+        }
+
+        input[type="text"], input[type="email"], input[type="radio"], button, input[type="submit"] {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #3D3D3D;
+            color: #F0F0F0;
+            font-size: 1rem;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #58A6FF;
+            border: none;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4A94D1;
+        }
+
+        #precoTotal {
+            font-weight: bold;
+            color: #58A6FF;
+        }
+
+        #numCaracteres {
+            font-weight: normal;
+            margin-left: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #58A6FF;
+            border: none;
+            color: white;
+            padding: 1rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4A94D1;
+        }
+
+        .form-footer {
+            text-align: center;
+            font-size: 1rem;
+            color: #999;
+            margin-top: 1rem;
+        }
+
+        .form-footer a {
+            color: #58A6FF;
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function calcularPreco() {
+            const pergunta = document.querySelector('input[name="question"]').value;
+            const prioridade = document.querySelector('input[name="r1"]:checked');
+            
+            // Calcular peso com base no tamanho da pergunta
+            const peso = pergunta.length < 100 ? 1.0 : (pergunta.length < 500 ? 1.5 : 2.0);
+            const prioridadeValor = prioridade ? parseInt(prioridade.value) * 10 : 0;
+            const total = peso * prioridadeValor;
+
+            // Exibir preço calculado
+            document.getElementById("precoTotal").textContent = `R$ ${total.toFixed(2)}`;
+
+            // Exibir o número de caracteres da pergunta
+            document.getElementById("numCaracteres").textContent = `Número de caracteres: ${pergunta.length}`;
+
+            // Define o valor calculado no campo oculto para envio
+            document.getElementById("totalPrice").value = total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Faça sua Pergunta</h1>
+        <form method="post" action="question.jsp" onsubmit="calcularPreco()">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <h2>Importante</h2>
+            <b>O calculo do preço é executado do seguinte modo:</b><br><br>
+            <b>Número de caracteres<b><br>
+            - De 1 a 50 o peso é 1.<br>
+            ----- De 50 a 100 o peso é 1.5.<br>
+            ----- De 100 para cima o peso é 2.<br><br>
+            <b>- Taxa de Prioridade<b><br>
+            ----- A cada número é adicionado 10. Ou seja. 1- 10. 2- 20. 3-30.<br>
+            ----- Quanto maior o número, mais rápido você terá a resposta.<br><br>
+            <b>- Exemplo<b><br>
+            ----- 75 caracteres de perunta com nível de prioridade 4:<br>
+            -----1.5 x 40 = R$60.00<br><br>
+            <label for="question">Pergunta:</label>
+            <input type="text" id="question" name="question" required>
+
+            <label>Qual o nível de prioridade desejada para sua pergunta?</label>
+            <div>
+                <input type="radio" name="r1" value="1" required> 1
+                <input type="radio" name="r1" value="2" required> 2
+                <input type="radio" name="r1" value="3" required> 3
+                <input type="radio" name="r1" value="4" required> 4
+                <input type="radio" name="r1" value="5" required> 5
+                <input type="radio" name="r1" value="6" required> 6
+                <input type="radio" name="r1" value="7" required> 7
+                <input type="radio" name="r1" value="8" required> 8
+                <input type="radio" name="r1" value="9" required> 9
+                <input type="radio" name="r1" value="10" required> 10
+            </div>
+
+            <button type="button" onclick="calcularPreco()">Calcular Preço</button>
+            <span id="precoTotal">R$ 0.00</span>
+
+            <span id="numCaracteres">Número de caracteres: 0</span>
+
+            <input type="hidden" id="totalPrice" name="total_price">
+
+            <input type="submit" value="Enviar!">
+        </form>
+        <div class="form-footer">
+            <p>Obrigado por preencher a pesquisa. <a href="#">Política de Privacidade</a></p>
+        </div>
+    </div>
+</body>
+</html>
